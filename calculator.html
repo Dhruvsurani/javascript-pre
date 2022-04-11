@@ -1,82 +1,84 @@
 <html>
     <head>
-
+        <link rel="stylesheet" href="calc.css">
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <script>
-            //function for displaying values
-            function dis(val)
-            {
-            document.getElementById("edu").value+=val
-             }
-            //function for evaluation
-            function solve()
-            {
-            let x = document.getElementById("edu").value
-            let y = eval(x)
-            document.getElementById("edu").value = y
-            }
-            //function for clearing the display
-            function clr()
-            {
-            document.getElementById("edu").value = ""
-            }
-        </script>
-        <!-- create table -->
-
-    <div class = title >Edureka JavaScript Calculator</div>
-    <table border="1">
-    <tr>
-    <td><input type="button" value="c" onclick="clr()"/> </td>
-    <td colspan="3"><input type="text" id="edu"/></td>
-    <!-- clr() function will call clr to clear all value -->
-    </tr>
-    <tr>
-    <!-- creating buttons and assigning values-->
-    <td><input type="button" value="+" onclick="dis('+')"/> </td>
-    <td><input type="button" value="1" onclick="dis('1')"/> </td>
-    <td><input type="button" value="2" onclick="dis('2')"/> </td>
-    <td><input type="button" value="3" onclick="dis('3')"/> </td>
-    </tr>
-    <tr>
-    <td><input type="button" value="-" onclick="dis('-')"/> </td>
-    <td><input type="button" value="4" onclick="dis('4')"/> </td>
-    <td><input type="button" value="5" onclick="dis('5')"/> </td>
-    <td><input type="button" value="6" onclick="dis('6')"/> </td>
-    </tr>
-    <tr>
-    <td><input type="button" value="*" onclick="dis('*')"/> </td>
-    <td><input type="button" value="7" onclick="dis('7')"/> </td>
-    <td><input type="button" value="8" onclick="dis('8')"/> </td>
-    <td><input type="button" value="9" onclick="dis('9')"/> </td>
-    </tr>
-    <tr>
-    <td><input type="button" value="/" onclick="dis('/')"/> </td>
-    <td><input type="button" value="." onclick="dis('.')"/> </td>
-    <td><input type="button" value="0" onclick="dis('0')"/> </td>
-    <!-- Evaluating function call eval()-->
-    <td><input type="button" value="=" onclick="solve()"/> </td>
-    </tr>
-    </table>
-    <style>
-        .title{
-        border-radius: 10px;
-        margin-bottom: 10px;
-        text-align:center;
-        width: 210px;
-        color:#ff4456;
-        border: solid black 1px;
-        }
-        
-        input[type="text"]
-        {
-        border-radius: 10px;
-        text-align: right;
-        background-color:white;
-        border-color: black ;
-        width:100%
-        }
-        </style>
-
+        <div class="container">
+            <table class="calc">
+                <tr>
+                    <td colspan="5" style="width: 100%; padding: 0; text-align: justify;"><input type="text" style="width: 100%; height: 46px; border: 0ch;" aria-placeholder="0"></td>
+                </tr>
+                <tr class="first_row row">
+                    <td class="deg_btn">DEG</td>
+                    <td class="fe_btn">F-E</td>
+                </tr>
+                <tr>
+                    <td class="mc_btn">MC</td>
+                    <td class="mr_btn">MR</td>
+                    <td class="m_plus_btn">M+</td>
+                    <td class="m_minus_btn">M-</td>
+                    <td class="ms_btn">MS</td>
+                </tr>
+                <tr class="function_dropdown row">
+                    <td colspan="2">
+                        <a style="text-decoration: none; display: flex;"><img src="trigo.png" style="width: 15px; margin-right: 2px; background-color: rgb(238, 235, 235);" 
+                            alt="">trigonometry<i class="fa fa-angle-down" style="margin-left: 3px;"></i></a>
+                    </td>
+                </tr>
+                <tr class="fourth_row row">
+                    <td class="2_btn">2 <span>nd</span></td>
+                    <td class="pie_btn">π</td>
+                    <td class="e_btn">e</td>
+                    <td class="c_btn">C</td>
+                    <td class="delete_btn"><img src="delete-left-solid.svg" style="height: 16px;" alt=""></td>
+                </tr>
+                <tr class="fifth_row row">
+                    <td class="x2_btn">x<span>2</span></td>
+                    <td class="1x_btn">1/x</td>
+                    <td class="x_btn">|x|</td>
+                    <td class="exp_btn">exp</td>
+                    <td class="mod_btn">mod</td>
+                </tr>
+                <tr class="six_row row">
+                    <td class="2squre_x_btn">
+                        <span class="superscript" style="top: -8px;">2</span>
+                        <span class="baseele" style="font-size: 1.2em; margin: -6px 0 0 -9px;">√x</span>
+                    </td>
+                    <td class="rround_btn">(</td>
+                    <td class="lround_btn">)</td>
+                    <td class="n_not_btn">n!</td>
+                    <td class="divison_btn">÷</td>
+                </tr>
+                <tr class="seven_row row">
+                    <td class="xy_btn">x<span>y</span></td>
+                    <td class="7_btn" style="background-color: white;">7</td>
+                    <td class="8_btn" style="background-color: white;">8</td>
+                    <td class="9_btn" style="background-color: white;">9</td>
+                    <td class="x_btn">x</td>
+                </tr>
+                <tr class="eight_row row">
+                    <td class="10x_btn">10<span>x</span></td>
+                    <td class="4_btn" style="background-color: white;">4</td>
+                    <td class="5_btn" style="background-color: white;">5</td>
+                    <td class="6_btn" style="background-color: white;">6</td>
+                    <td class="minus_btn">-</td>
+                </tr>
+                <tr class="nine_row row">
+                    <td  class="log_btn">log</td>
+                    <td  class="1_btn" style="background-color: white;">1</td>
+                    <td  class="2_btn" style="background-color: white;">2</td>
+                    <td  class="3_btn" style="background-color: white;">3</td>
+                    <td  class="plus_btn">+</td>
+                </tr>
+                <tr class="ten_row row" style="margin-bottom: 5px;">
+                    <td  class="in_btn">in</td>
+                    <td  class="pluse_minus_btn" style="background-color: white;">+/-</td>
+                    <td  class="0_btn" style="background-color: white;">0</td>
+                    <td  class="dot_btn" style="background-color: white;">.</td>
+                    <td  class="equal_btn" style="background-color: rgb(93, 157, 214);">=</td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
