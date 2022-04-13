@@ -4,81 +4,193 @@
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="container">
-            <table class="calc">
+        <form name="calcul">
+            <table>
                 <tr>
-                    <td colspan="5" style="width: 100%; padding: 0; text-align: justify;"><input type="text" style="width: 100%; height: 46px; border: 0ch;" aria-placeholder="0"></td>
+                    <td colspan="5"> <input type="text" class="readout" name="result" id="display" placeholder="0" style="text-align:right"> </td>
+                    <input type="hidden" name="mem_win" size="16" >
+
+                    <input type="hidden" name="memory" value="0">
+
                 </tr>
                 <tr class="first_row row">
-                    <td class="deg_btn">DEG</td>
-                    <td class="fe_btn">F-E</td>
+                    <td><button type="button" value="deg" onclick="deg()">DEG</button></td><!--done-->
+                    <td><button type="button" value="fe">F-E</button></td>
                 </tr>
                 <tr>
-                    <td class="mc_btn">MC</td>
-                    <td class="mr_btn">MR</td>
-                    <td class="m_plus_btn">M+</td>
-                    <td class="m_minus_btn">M-</td>
-                    <td class="ms_btn">MS</td>
+                    <td><button type="button" value="mc" id="clearHistory" onclick="memory_c()">MC</button></td>
+                    <td><button type="button" value="mr" id="MR" onclick="memory_r()">MR</button></td>
+                    <td><button type="button" value="m+" id="M+" onclick="memory_p()">M+</button></td>
+                    <td><button type="button" value="m-" id="M-" onclick="memory_s()">M-</button></td>
+                    <ul ><li id="memory-list" style="list-style: none;"><br></li></ul>
+                    <td><button type="button" value="ms" id="MS" onclick="memory_store()">MS</button></td>
                 </tr>
-                <tr class="function_dropdown row">
-                    <td colspan="2">
+                <tr class="function_dropdown row" style="height: 60px;">
+                    <td colspan="2" style="text-align: center;">
                         <a style="text-decoration: none; display: flex;"><img src="trigo.png" style="width: 15px; margin-right: 2px; background-color: rgb(238, 235, 235);" 
                             alt="">trigonometry<i class="fa fa-angle-down" style="margin-left: 3px;"></i></a>
                     </td>
+                    <td colspan="3">
+                        <a style="text-decoration: none; display: flex;"><img src="function.png" style="width: 15px; margin-right: 2px; background-color: rgb(238, 235, 235);" 
+                            alt="">function<i class="fa fa-angle-down" style="margin-left: 3px;"></i></a>
+                    </td>
                 </tr>
                 <tr class="fourth_row row">
-                    <td class="2_btn">2 <span>nd</span></td>
-                    <td class="pie_btn">π</td>
-                    <td class="e_btn">e</td>
-                    <td class="c_btn">C</td>
-                    <td class="delete_btn"><img src="delete-left-solid.svg" style="height: 16px;" alt=""></td>
+                    <td><button type="button" value="2nd">2 <sup>nd</sup></button></td>
+                    <td><button type="button" value="pie">π</button></td>
+                    <td><button type="button" value="e">e</button></td>
+                    <td><button type="button" value="C" class="clear" onclick="remv()"> C </button></td><!--done-->
+                    <td><button type="button" value="backspace" onclick="backspace_remove()"><img src="delete-left-solid.svg" style="height: 16px;" alt=""></button></td><!--done-->
                 </tr>
                 <tr class="fifth_row row">
-                    <td class="x2_btn">x<span>2</span></td>
-                    <td class="1x_btn">1/x</td>
-                    <td class="x_btn">|x|</td>
-                    <td class="exp_btn">exp</td>
-                    <td class="mod_btn">mod</td>
+                    <td><button type="button" value="x2" onclick="square()">𝑥²</button></td><!--done-->
+                    <td><button type="button" value="1/x" onclick="division_one()">¹∕ₓ</button></td>
+                    <td><button type="button" value="|x|">|x|</button></td>
+                    <td><button type="button" value="exp" onclick="exp()">exp</button></td>
+                    <td><button type="button" value="%" onclick="number(value)">mod</button></td><!--done-->
                 </tr>
                 <tr class="six_row row">
-                    <td class="2squre_x_btn">
-                        <span class="superscript" style="top: -8px;">2</span>
-                        <span class="baseele" style="font-size: 1.2em; margin: -6px 0 0 -9px;">√x</span>
-                    </td>
-                    <td class="rround_btn">(</td>
-                    <td class="lround_btn">)</td>
-                    <td class="n_not_btn">n!</td>
-                    <td class="divison_btn">÷</td>
+                    <td><button type="button" value="2√𝑥">2√𝑥</button></td>
+                    <td><button type="button" value="(">(</button></td>
+                    <td><button type="button" value=")">)</button></td>
+                    <td><button type="button" value="n!">n!</button></td>
+                    <td><button type="button" value="/" onclick="number(value)"> / </button> </td><!--done-->
                 </tr>
                 <tr class="seven_row row">
-                    <td class="xy_btn">x<span>y</span></td>
-                    <td class="7_btn" style="background-color: white;">7</td>
-                    <td class="8_btn" style="background-color: white;">8</td>
-                    <td class="9_btn" style="background-color: white;">9</td>
-                    <td class="x_btn">x</td>
+                    <td><button type="button" value="xy">xy</button></td>
+                    <td><button type="button" value="7" onclick="number(value)" style="background-color: azure;"> 7 </button> </td><!--done-->
+                    <td><button type="button" value="8" onclick="number(value)" style="background-color: azure;"> 8 </button> </td><!--done-->
+                    <td><button type="button" value="9" onclick="number(value)" style="background-color: azure;"> 9 </button> </td><!--done-->
+                    <td><button type="button" value="*" onclick="number(value)"> * </button> </td><!--done-->
                 </tr>
                 <tr class="eight_row row">
-                    <td class="10x_btn">10<span>x</span></td>
-                    <td class="4_btn" style="background-color: white;">4</td>
-                    <td class="5_btn" style="background-color: white;">5</td>
-                    <td class="6_btn" style="background-color: white;">6</td>
-                    <td class="minus_btn">-</td>
+                    <td><button type="button" value="10x">10x</button></td>
+                    <td><button type="button" value="4" onclick="number(value)" style="background-color: azure;"> 4</button> </td><!--done-->
+                    <td><button type="button" value="5" onclick="number(value)" style="background-color: azure;"> 5 </button> </td><!--done-->
+                    <td><button type="button" value="6" onclick="number(value)" style="background-color: azure;"> 6 </button> </td><!--done-->
+                    <td><button type="button" value="-" onclick="number(value)" > - </button> </td><!--done-->
                 </tr>
                 <tr class="nine_row row">
-                    <td  class="log_btn">log</td>
-                    <td  class="1_btn" style="background-color: white;">1</td>
-                    <td  class="2_btn" style="background-color: white;">2</td>
-                    <td  class="3_btn" style="background-color: white;">3</td>
-                    <td  class="plus_btn">+</td>
+                    <td><button type="button" value="log" onclick="log()">log</button></td>
+                    <td><button type="button" value="1" onclick="number(value)" style="background-color: azure;"> 1 </button> </td><!--done-->
+                    <td><button type="button" value="2" onclick="number(value)" style="background-color: azure;"> 2 </button> </td><!--done-->
+                    <td><button type="button" value="3" onclick="number(value)" style="background-color: azure;"> 3 </button> </td><!--done-->
+                    <td><button type="button" value="+" onclick="number(value)" > + </button> </td><!--done-->
                 </tr>
                 <tr class="ten_row row" style="margin-bottom: 5px;">
-                    <td  class="in_btn">in</td>
-                    <td  class="pluse_minus_btn" style="background-color: white;">+/-</td>
-                    <td  class="0_btn" style="background-color: white;">0</td>
-                    <td  class="dot_btn" style="background-color: white;">.</td>
-                    <td  class="equal_btn" style="background-color: rgb(93, 157, 214);">=</td>
+                    <td><button type="button" value="ln">ln</button></td>
+                    <td><button type="button" value="+/-" onclick="plus_minus()" style="background-color: azure;">+/-</button></td>
+                    <td><button type="button" value="0" onclick="number(value)" style="background-color: azure;"> 0 </button> </td><!--done-->
+                    <td><button type="button" value="." onclick="number(value)" style="background-color: azure;"> . </button> </td><!--done-->
+                    <td> <button type="button" value="=" onclick="equal()" class="equal" style="background-color: rgb(79, 119, 230);">=</button> </td><!--done-->
                 </tr>
             </table>
-        </div>
+        </form>
+        <script>
+            
+            function division_one(){
+                document.calcul.result.value = 1/document.calcul.result.value;
+            }
+        
+        
+            function square(){
+            document.calcul.result.value = Math.pow(document.calcul.result.value, 2);
+            }
+        
+            function deg(){
+                document.calcul.result.value = Math.cos(document.calcul.result.value*(Math.PI/180));
+            }
+        
+            function number(value){
+            document.calcul.result.value += value;
+            }
+        
+            function remv(){
+            document.calcul.result.value=" ";
+            }
+
+            function equal(){
+                document.calcul.result.value = eval(document.calcul.result.value);
+            }
+            function backspace_remove(){
+                document.calcul.result.value = document.calcul.result.value.substr(0, document.calcul.result.value.length - 1);   
+            }
+
+            function log(){
+                document.calcul.result.value = Math.log(document.calcul.result.value);
+            }
+
+            function exp(){
+                document.calcul.result.value = Math.exp(document.calcul.result.value);
+            }
+
+            function memory_p() {
+
+                if (document.calcul.result.value ==''){
+
+                    return;
+
+                }
+
+                document.calcul.memory.value+= '+' + document.calcul.result.value;
+
+                document.calcul.memory.value=eval(document.calcul.memory.value);
+
+                eqFlag=true;
+
+                document.calcul.mem_win.value=document.calcul.memory.value;
+
+            }
+
+            function memory_s() {
+
+                if (document.calcul.result.value ==''){
+
+                    return;
+
+                }
+
+                document.calcul.memory.value += '-' + (document.calcul.result.value);
+
+                document.calcul.memory.value=eval(document.calcul.memory.value);
+
+                eqFlag=1;
+
+                document.calcul.mem_win.value=document.calcul.memory.value;
+            }
+
+            function memory_r() {
+
+                // document.calcul.result.value='';
+
+                document.calcul.result.value = document.calcul.memory.value;
+
+                eqFlag=true;
+            }
+            var memoryRegister = []
+            function memory_store() {
+                var num = Number(document.calcul.mem_win.value);
+                if (Number.isNaN(num)) return;
+                memoryRegister.push(num);
+
+                
+                memoryRegister.forEach(function(element) {
+                    document.getElementById('memory-list').append(element )
+                });
+            }
+            
+
+
+            function memory_c() {
+
+                
+
+                document.calcul.memory.value = 0;
+            }
+
+            
+            
+        </script>
+        <script src="calc.js"></script>
     </body>
 </html>
