@@ -1,6 +1,8 @@
 <html>
     <head>
+        <!--link of css file -->
         <link rel="stylesheet" href="calc.css">
+        <!--link of bootstrap file for font awsome-->
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     </head>
     <body>
@@ -87,43 +89,52 @@
             </table>
         </form>
         <script>
-            
+            //function for ¹∕ₓ 
             function division_one(){
                 document.calcul.result.value = 1/document.calcul.result.value;
             }
         
-        
+            //function for x2
             function square(){
             document.calcul.result.value = Math.pow(document.calcul.result.value, 2);
             }
-        
+            
+            //function for degree
             function deg(){
                 document.calcul.result.value = Math.cos(document.calcul.result.value*(Math.PI/180));
             }
-        
+            
+            //function for all operator
             function number(value){
             document.calcul.result.value += value;
             }
-        
+            
+            //function for clear screen
             function remv(){
             document.calcul.result.value=" ";
             }
 
+            //function for '=' sign
             function equal(){
                 document.calcul.result.value = eval(document.calcul.result.value);
             }
+
+            //function for backspace
             function backspace_remove(){
                 document.calcul.result.value = document.calcul.result.value.substr(0, document.calcul.result.value.length - 1);   
             }
 
+            //function for log
             function log(){
                 document.calcul.result.value = Math.log(document.calcul.result.value);
             }
 
+            //function for exp button
             function exp(){
                 document.calcul.result.value = Math.exp(document.calcul.result.value);
             }
 
+            //function for M+ button
             function memory_p() {
 
                 if (document.calcul.result.value ==''){
@@ -142,6 +153,7 @@
 
             }
 
+            //function for M- button
             function memory_s() {
 
                 if (document.calcul.result.value ==''){
@@ -159,6 +171,7 @@
                 document.calcul.mem_win.value=document.calcul.memory.value;
             }
 
+            //function for memory read 'MR'
             function memory_r() {
 
                 // document.calcul.result.value='';
@@ -167,6 +180,8 @@
 
                 eqFlag=true;
             }
+
+            //function for memory store 'MS'
             const memoryRegister = []
             function memory_store() {
                 var num = Number(document.calcul.mem_win.value);
@@ -180,7 +195,7 @@
             }
             
 
-
+            //function for clear memory
             function memory_c() {
 
                 document.calcul.mem_win.value = NaN;
