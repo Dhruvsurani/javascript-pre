@@ -167,7 +167,7 @@
 
                 eqFlag=true;
             }
-            var memoryRegister = []
+            const memoryRegister = []
             function memory_store() {
                 var num = Number(document.calcul.mem_win.value);
                 if (Number.isNaN(num)) return;
@@ -183,9 +183,9 @@
 
             function memory_c() {
 
-                
-
-                document.calcul.memory.value = 0;
+                document.calcul.mem_win.value = NaN;
+                memoryRegister.length = 0;
+                document.getElementById('memory-list').innerHTML = '';
             }
 
             
